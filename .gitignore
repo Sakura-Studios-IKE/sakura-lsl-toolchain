@@ -1,0 +1,10 @@
+# Build / test scratch
+/tmp/
+*.lslbc
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+Thumbs.db

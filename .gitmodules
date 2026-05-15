@@ -1,0 +1,15 @@
+[submodule "sakura-lslc"]
+	path = sakura-lslc
+	url = https://github.com/Sakura-Studios-IKE/sakura-lslc.git
+[submodule "sakura-slemu"]
+	path = sakura-slemu
+	url = https://github.com/Sakura-Studios-IKE/sakura-slemu.git
+[submodule "sakura-lsldb"]
+	path = sakura-lsldb
+	url = https://github.com/Sakura-Studios-IKE/sakura-lsldb.git
+[submodule "sakura-lsltest"]
+	path = sakura-lsltest
+	url = https://github.com/Sakura-Studios-IKE/sakura-lsltest.git
+[submodule "sakura-intellij-lsl"]
+	path = sakura-intellij-lsl
+	url = https://github.com/Sakura-Studios-IKE/sakura-intellij-lsl.git
