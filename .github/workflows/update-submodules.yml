@@ -1,0 +1,39 @@
+name: Bump submodules
+
+on:
+  schedule:
+    # Every day at 04:00 UTC; cheap enough to catch downstream tool updates
+    # without pestering the maintainer.
+    - cron: '0 4 * * *'
+  workflow_dispatch: {}
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+          token: ${{ secrets.META_BUMP_TOKEN || secrets.GITHUB_TOKEN }}
+
+      - name: Update all submodules to their tracked branch HEAD
+        run: |
+          git config user.name  "Shiho Sakura"
+          git config user.email "shiho@sakurastudios.eu"
+          git submodule foreach --recursive 'git fetch --tags origin main && git checkout main && git pull --ff-only origin main'
+
+      - name: Open PR if anything changed
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.META_BUMP_TOKEN || secrets.GITHUB_TOKEN }}
+          branch: chore/bump-submodules
+          delete-branch: true
+          commit-message: "chore: bump submodules"
+          title: "chore: bump submodules"
+          body: |
+            Automated daily bump of every submodule to the head of its
+            tracked branch. Merge after CI on each submodule is green.

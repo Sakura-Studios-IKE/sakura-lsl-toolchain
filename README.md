@@ -1,4 +1,15 @@
+<p align="center">
+  <img src="assets/branding/sakura-studios-mark.svg" alt="Sakura Studios" width="120"/>
+</p>
+
 # Sakura Studios LSL Toolchain
+
+[![lslc](https://github.com/Sakura-Studios-IKE/sakura-lslc/actions/workflows/ci.yml/badge.svg)](https://github.com/Sakura-Studios-IKE/sakura-lslc/actions/workflows/ci.yml)
+[![slemu](https://github.com/Sakura-Studios-IKE/sakura-slemu/actions/workflows/ci.yml/badge.svg)](https://github.com/Sakura-Studios-IKE/sakura-slemu/actions/workflows/ci.yml)
+[![lsldb](https://github.com/Sakura-Studios-IKE/sakura-lsldb/actions/workflows/ci.yml/badge.svg)](https://github.com/Sakura-Studios-IKE/sakura-lsldb/actions/workflows/ci.yml)
+[![lsltest](https://github.com/Sakura-Studios-IKE/sakura-lsltest/actions/workflows/ci.yml/badge.svg)](https://github.com/Sakura-Studios-IKE/sakura-lsltest/actions/workflows/ci.yml)
+[![intellij](https://github.com/Sakura-Studios-IKE/sakura-intellij-lsl/actions/workflows/ci.yml/badge.svg)](https://github.com/Sakura-Studios-IKE/sakura-intellij-lsl/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 > A complete open-source toolchain for Linden Scripting Language (LSL) development.
 > Five independently-installable tools, one coherent workflow.
@@ -47,6 +58,34 @@ The `Makefile` at the root delegates to each subproject's own build system.
 See [`INSTALL.md`](./INSTALL.md) for the from-scratch installation guide
 including the IntelliJ plugin.
 
+## Install pre-built packages
+
+### Arch Linux (AUR)
+
+```sh
+yay -S sakura-lslc sakura-slemu sakura-lsldb sakura-lsltest
+```
+
+`-git` variants (`sakura-lslc-git`, …) follow `main`.
+
+### IntelliJ plugin
+
+In your IDE: **Settings → Plugins → Marketplace → search "Sakura LSL"**,
+or download the latest zip from the
+[plugin's GitHub Releases page](https://github.com/Sakura-Studios-IKE/sakura-intellij-lsl/releases)
+and install via **Install Plugin from Disk…**.
+
+### PyPI
+
+```sh
+pip install sakura-lsltest
+```
+
+### Pre-built binaries
+
+Every tagged release publishes Linux / macOS / Windows binaries on the
+GitHub Releases page of each tool.
+
 ## Headline numbers (last verified)
 
 | Tool | Build status | Tests passing |
@@ -66,6 +105,7 @@ including the IntelliJ plugin.
 * [`SL_COMPATIBILITY.md`](./SL_COMPATIBILITY.md) — exhaustive audit of where (if anywhere) the Sakura toolchain diverges from real Second Life behaviour, classified IDENTICAL / APPROXIMATED / STUBBED / DIVERGES.
 * [`DEBUGGING_GUIDE.md`](./DEBUGGING_GUIDE.md) — the full developer-facing observability catalogue: every CLI flag, every JSON event type, every recipe.
 * [`SAKURA_TOOLCHAIN_BRAND.md`](./SAKURA_TOOLCHAIN_BRAND.md) — landscape & positioning brief for the LSL tooling ecosystem.
+* [`RELEASE.md`](./RELEASE.md) — how releases are cut and published across the five repos (AUR, PyPI, JetBrains Marketplace, GitHub Releases).
 
 Per-tool reference docs live in each tool's own `DOCUMENTATION.md`.
 
